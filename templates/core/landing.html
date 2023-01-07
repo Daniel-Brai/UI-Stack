@@ -1,0 +1,482 @@
+{% extends 'includes/base.html' %} 
+{% load static %} 
+
+{% block title %}
+  Introduction | UI Stack 
+{% endblock %} 
+
+{% block js %}
+  <script type="module" src={% static 'js/landing.min.js' %}></script>
+{% endblock  %}
+
+{% block content %}
+
+{% include 'includes/landing__navbar.html' %}
+
+<main>
+  <section id="hero">
+    <div
+      class="bg-gray-800 container flex flex-col px-6 py-10 mx-auto space-y-6 lg:h-[34rem] lg:py-16 lg:px-10 lg:flex-row lg:items-center"
+    >
+      <div class="w-full lg:w-1/2">
+        <div class="lg:max-w-lg">
+          <h1
+            class="text-3xl font-bold tracking-wide text-white lg:text-5xl"
+          >
+            Share your experiences with the future generations
+          </h1>
+
+          <div class="mt-8 space-y-5">
+            <p class="flex items-center -mx-2 text-gray-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-2 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+
+              <span class="mx-2">Share relevant studying materials</span>
+            </p>
+
+            <p class="flex items-center -mx-2 text-gray-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-2 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+
+              <span class="mx-2">Create posts on your favorite topics</span>
+            </p>
+
+            <p class="flex items-center -mx-2 text-gray-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 mx-2 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+
+              <span class="mx-2">Make new friends</span>
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="w-full mt-8 bg-transparent border rounded-md lg:max-w-sm border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-400 focus-within:ring-opacity-40"
+        >
+          <form class="flex flex-col lg:flex-row lg:justify-between">
+            {{ waitlist_form.as_div }}
+            {% csrf_token %}
+            <button
+              type="button"
+              class="h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400"
+            >
+              Join the Waitlist
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
+        <img
+          class="object-cover w-full h-full mx-auto rounded-md lg:max-w-2xl"
+          src="{% static 'images/test.jpg' %}"
+          alt="Hero Image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="py-16">
+      <div class="container m-auto px-6 text-gray-600 md:px-12 xl:px-6 lg:px-10">
+        <div
+          class="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12 lg:justify-between"
+        >
+          <div class="md:5/12 lg:w-5/12">
+            <img
+              class="rounded-md"
+              src="{% static 'images/test.jpg' %}"
+              alt="About Image"
+              loading="lazy"
+            />
+          </div>
+          <div class="md:7/12 lg:w-6/12">
+            <span class="text-slate-100 text-lg font-semibold">Our Purpose</span>
+            <h2 class="text-2xl mt-4 text-white font-bold md:text-4xl">
+              Building a Foundation upon which students grow
+            </h2>
+            <p class="mt-6 text-gray-200">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum
+              omnis voluptatem accusantium nemo perspiciatis delectus atque
+              autem! Voluptatum tenetur beatae unde aperiam, repellat expedita
+              consequatur! Officiis id consequatur atque doloremque!
+            </p>
+            <p class="mt-4 text-gray-200">
+              Nobis minus voluptatibus pariatur dignissimos libero quaerat iure
+              expedita at? Asperiores nemo possimus nesciunt dicta veniam
+              aspernatur quam mollitia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="py-16 bg-gray-50 overflow-hidden">
+      <div class="container m-auto px-6 space-y-8 text-gray-500 md:px-12 lg:px-10">
+        <div>
+          <span class="text-gray-600 text-lg font-semibold">Features</span>
+          <h2 class="mt-4 text-2xl text-gray-900 font-bold md:text-4xl">
+            Our Community-based approach for fostering 
+            <br class="lg:block" hidden />
+              Great Experiences in the University 
+          </h2>
+        </div>
+        <div
+          class="mt-16 grid border divide-x divide-y rounded-xl overflow-hidden sm:grid-cols-2 lg:divide-y-0 lg:grid-cols-3 xl:grid-cols-4"
+        >
+          <div
+            class="relative group bg-white transition hover:z-[1] hover:shadow-2xl"
+          >
+            <div class="relative p-8 space-y-8">
+              <img
+                src="{% static 'images/topics.png' %}"
+                class="w-10"
+                alt="Make your own story image "
+                loading="lazy" 
+              />
+
+              <div class="space-y-2">
+                <h5
+                  class="text-xl text-gray-800 font-medium transition group-hover:text-blue-500"
+                >
+                  Stack Topics
+                </h5>
+                <p class="text-sm text-gray-600">
+                  Share your experiences as UI student. Write posts on any topic on your timeline
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative group bg-white transition hover:z-[1] hover:shadow-2xl"
+          >
+            <div class="relative p-8 space-y-8">
+              <img
+                src="{% static 'images/repository.png' %}"
+                class="w-10"
+                alt="Info Hub for the University of Ibadan"
+                loading="lazy"
+              />
+
+              <div class="space-y-2">
+                <h5
+                  class="text-xl text-gray-800 font-medium transition group-hover:text-blue-500"
+                >
+                  Stack Time Capsule
+                </h5>
+                <p class="text-sm text-gray-600">
+                  An Information hub for UI courses, events and more for students by students both present and past
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative group bg-white transition hover:z-[1] hover:shadow-2xl"
+          >
+            <div class="relative p-8 space-y-8">
+              <img
+                src="{% static 'images/user-groups.png' %}"
+                class="w-10"
+                alt="User Groups Images"
+                loading="lazy"
+              />
+
+              <div class="space-y-2">
+                <h5
+                  class="text-xl text-gray-800 font-medium transition group-hover:text-blue-500"
+                >
+                  Stack Groups
+                </h5>
+                <p class="text-sm text-gray-600">
+                  Join groups with UI students with similiar stacks or Invite your friends to join a group
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl xl:block"
+          >
+            <div
+              class="relative p-8 space-y-8 border-dashed rounded-lg transition duration-300 group-hover:bg-white group-hover:border group-hover:scale-90"
+            >
+              <img
+                src="{% static 'images/chats.png' %}"
+                class="w-10"
+                alt="User and Group Chats image"
+                loading="lazy"
+              />
+
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <h5
+                    class="text-xl text-gray-800 font-medium transition group-hover:text-blue-500"
+                  >
+                    Stack Chat 
+                  </h5>
+                  <span class="ml-3 text-[10px] font-medium text-amber-600 px-2 py-0.5 rounded-full bg-amber-100/90">coming soon</span>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Chat and collaborate with your friends and with group participants
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container py-8 lg:py-16 px-5 mx-auto md:px-12 xl:px-6 lg:px-10">
+      <div class="flex flex-col md:flex-row md:gap-6 lg:justify-between">
+        <div class="md:w-5/12 lg:w-5/12">
+          <span class="text-white text-2xl md:text-4xl font-semibold">Contact Us</span>
+          <p class="mt-4 mb-8 lg:mb-8 text-base leading-relaxed text-white">Got a technical issue? Want to send feedback about a feature? Need details about how you can sponsor us? Let us know.</p>
+          
+          <div class="space-y-5">
+            <div class="flex items-center">
+              <img class="w-10" src="{% static 'images/location.png' %}" alt="Location image" loading="lazy">
+              <p class="ml-5 text-white lg:text-base">University of Ibadan, Oyo state, NG</p>
+            </div>
+            <div class="flex items-center">
+              <img class="w-10" src="{% static 'images/mail.png' %}" alt="Location image" loading="lazy">
+              <a class="ml-5 text-white lg:text-base" href="mailto:uistack@outlook.com">uistack@outlook.com</a>
+            </div>
+          </div>
+        </div>
+        <form id="contact_form" action="" class="mt-8 sm:mt-8 space-y-8 md:w-7/12 lg:w-6/12">
+          {{ contact_form.as_div }}
+          {% csrf_token %}
+          <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit focus:ring-4 focus:outline-none focus:ring-blue-300">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="bg-white">
+    <div class="text-gray-700 container px-5 py-24 mx-auto lg:px-10">
+        <div class="text-center mb-20">
+            <h1 class="text-2xl md:text-4xl font-bold text-center title-font text-gray-900 mb-4">
+                Frequently Asked Question
+            </h1>
+            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+                The most common questions you can ask about how UI Stack works and what it
+                can do for you.
+            </p>
+        </div>
+
+        <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+            <div class="w-full lg:w-1/2 px-4 py-2"> 
+                <details class="group mb-4">
+                    <summary
+                    class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
+                    >
+                    <span>How do I register on UI Stack?</span>
+                    <span class="transition group-open:rotate-180">
+                        <svg
+                        fill="none"
+                        height="24"
+                        shape-rendering="geometricPrecision"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        >
+                        <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                      Currently, UI Stack is still in the development phase. 
+                      However, you can register filling out the waitlist form and you will receive an email when UI Stack is live.
+                    </p>
+                </details>
+
+                <details class="group mb-4">
+                    <summary
+                    class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
+                    >
+                    <span>Is it free to post on UI Stack?</span>
+                    <span class="transition group-open:rotate-180">
+                        <svg
+                        fill="none"
+                        height="24"
+                        shape-rendering="geometricPrecision"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        >
+                        <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                      Absolutely! All you have to do is register with your email.
+                    </p>
+                </details>
+
+                <details class="group mb-4">
+                    <summary
+                    class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
+                    >
+                    <span>Is it only for UI students?</span>
+                    <span class="transition group-open:rotate-180">
+                        <svg
+                        fill="none"
+                        height="24"
+                        shape-rendering="geometricPrecision"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        >
+                        <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </span>
+                    </summary>
+                    <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                      The focus of UI Stack is to foster great experiences with the students of the University of Ibadan (UI) as such only UI students are allowed to post any content.
+                      However, as a non-UI student, you can still view posts on UI Stack.
+                    </p>
+                </details>
+
+              </div>
+
+            <div class="w-full lg:w-1/2 px-4 py-2"> 
+              <details class="group mb-4">
+                  <summary
+                  class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
+                  >
+                  <span>Can the information in Stack Time Capsule be verified?</span>
+                  <span class="transition group-open:rotate-180">
+                      <svg
+                      fill="none"
+                      height="24"
+                      shape-rendering="geometricPrecision"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      >
+                      <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                  </span>
+                  </summary>
+                  <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                    UI Stack uses a voting system in which the community decides whether information posted is legit.
+                    Also, a post is tagged with verified badge if upvoted by a lot of members in the UI Stack Community
+                  </p>
+              </details>
+
+              <details class="group mb-4">
+                  <summary
+                  class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
+                  >
+                  <span>What is a stack?</span>
+                  <span class="transition group-open:rotate-180">
+                      <svg
+                      fill="none"
+                      height="24"
+                      shape-rendering="geometricPrecision"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      >
+                      <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                  </span>
+                  </summary>
+                  <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                    A stack refers to your niche. What you at good at. What activty makes you feel good.
+                    At UI Stack, a student can have as many stacks as they wish.
+                  </p>
+              </details>
+
+              <details class="group mb-4">
+                  <summary
+                  class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
+                  >
+                  <span>How can I meet with people of similiar stacks?</span>
+                  <span class="transition group-open:rotate-180">
+                      <svg
+                      fill="none"
+                      height="24"
+                      shape-rendering="geometricPrecision"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      >
+                      <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                  </span>
+                  </summary>
+                  <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                    By default, UI Stack will show you the posts of UI students with similiar stacks as yours.
+                    Also, you can decide to follow anyone and see their posts.
+                  </p>
+              </details>
+
+
+            </div>
+        </div>
+    </div>
+  </section>
+
+</main>
+
+{% include 'includes/landing__footer.html' %}
+
+{% endblock %}
