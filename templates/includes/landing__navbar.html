@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="bg-gray-800 container p-6 mx-auto lg:flex lg:justify-between lg:items-center lg:px-10">
     <div class="flex items-center justify-between">
         <div class="flex items-center">
-            <a class="text-lg font-bold text-white lg:text-2xlhover:text-gray-300" href="/">UI Stack</a>
+            <a class="text-lg font-bold text-white lg:text-2xl hover:text-gray-300" href="/">UI Stack</a>
             <span class="ml-3 text-[10px] font-medium text-amber-600 px-2 py-0.5 rounded-full bg-amber-100/90">beta</span>
         </div>
 
@@ -25,24 +25,31 @@
         >
         <p 
             id="about_link" 
+            @click="open = ! open"
             class="text-gray-200 lg:px-6 hover:text-blue-400 cursor-pointer"
             :class="{'': open, 'hidden lg:block': !open}" 
             >About</p>
         <p 
-            id="feat_link" 
+            id="feat_link"
+            @click="open = ! open"
             class="text-gray-200 lg:px-6 hover:text-blue-400 cursor-pointer"
             :class="{'': open, 'hidden lg:block': !open}" 
             >Features</p>
         <p 
             id="faq_link" 
+            @click="open = ! open"
             class="text-gray-200 lg:px-6 hover:text-blue-400 cursor-pointer"
             :class="{'': open, 'hidden lg:block': !open}" 
             >FAQ</p>
-        <p id="contact_link" :class="{'block h-10 px-5 py-2 mt-4 text-sm text-center capitalize transition-colors duration-200 cursor-pointer transform border rounded-md hover:bg-gray-700 text-white lg:mt-0 lg:w-auto': open, 'hidden': !open}" href="">
+        <p 
+            id="contact_link" 
+            @click="open = ! open"
+            :class="{'block h-10 px-5 py-2 mt-4 text-sm text-center capitalize transition-colors duration-200 cursor-pointer transform border rounded-md hover:bg-gray-700 text-white lg:mt-0 lg:w-auto': open, 'hidden': !open}"
+            >
             Contact Us
         </p>
     </div>
-    <p id="contact_link" :class="{'hidden lg:block h-10 px-5 py-2 mt-4 text-sm text-center capitalize transition-colors duration-200 cursor-pointer transform border rounded-md hover:bg-gray-700 text-white lg:mt-0 lg:w-auto': !open, 'hidden': open}">
+    <p id="contact_link2" :class="{'hidden lg:block h-10 px-5 py-2 mt-4 text-sm text-center capitalize transition-colors duration-200 cursor-pointer transform border rounded-md hover:bg-gray-700 text-white lg:mt-0 lg:w-auto': !open, 'hidden': open}">
         Contact Us
     </p>
 </nav>
