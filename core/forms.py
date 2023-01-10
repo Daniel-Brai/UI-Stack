@@ -1,7 +1,14 @@
 from django import forms
 from django.core.exceptions import ValidationError
+
 class WaitlistForm(forms.Form):
     email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'waitlist', 'placeholder': 'Enter your email address'}) ,required=True, label="")
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if email:
+            return email
+        raise forms.ValidationError('Enter a valid email')
 
 class ContactForm(forms.Form):
     name= forms.CharField(widget=forms.TextInput(attrs={'class' : 'input', 'placeholder': 'John Doe'}) ,min_length=2, required=True, label="Your name", label_suffix="")
@@ -11,7 +18,13 @@ class ContactForm(forms.Form):
 
     def clean_fields(self):
         cd = self.cleaned_data
-        valid = self.is_valid()
-        if cd and valid:
-            return self
-        return forms.ValidationError('Somethin went wrong')
+        if cd:
+            return cd
+        raise forms.ValidationError(
+            {
+                'name':'Enter a valid name at least 2 characters', 
+                'email':'Enter a vaild email address',
+                'subject': 'Enter the subject of your email',
+                'message': 'Enter your message'  
+            }
+        )

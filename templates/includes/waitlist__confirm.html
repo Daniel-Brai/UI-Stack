@@ -1,0 +1,16 @@
+{{ waitlist_form.as_div }}
+{% csrf_token %}
+<input type="hidden" name="form_type" value="waitlist" />
+<input
+type="submit"
+value="Join the waitlist"
+class=" cursor-pointer h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400"
+/> 
+<div 
+    x-data="{ show: true }"
+    x-show="show"
+    x-init="setTimeout(() => show = false, 10000)"
+    class="px-4 py-2 m-1 w-fit text-white animate-fadeIn transform rounded-md bg-blue-500">
+        <p>{{ w_message }}
+    </div>
+</div>

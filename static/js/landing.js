@@ -29,8 +29,8 @@ contact_l.addEventListener('click', () => {
 contact_l2.addEventListener('click', () => {
     contact.scrollIntoView({behaviour: "smooth"})
 })
-forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-    })
-})
+// forms.forEach((form) => {
+//     form.addEventListener('submit', (e) => {
+//         e.preventDefault()
+//     })
+// })

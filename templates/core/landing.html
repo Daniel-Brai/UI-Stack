@@ -6,8 +6,9 @@
 {% endblock %} 
 
 {% block js %}
-  <script type="module" src={% static 'js/alpine/alpine.min.js' %}></script>
-  <script type="module" src={% static 'js/landing.min.js' %}></script>
+  <script type="module" src="{% static 'js/alpine/alpine.min.js' %}"></script>
+  <script type="module" src="{% static 'js/htmx/htmx.min.js' %}"></script>
+  <script type="module" src="{% static 'js/landing.min.js' %}"></script>
 {% endblock  %}
 
 {% block content %}
@@ -88,17 +89,18 @@
         </div>
 
         <div
-          class="w-full mt-8 bg-transparent border rounded-md lg:max-w-sm border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-400 focus-within:ring-opacity-40"
+          class="w-full mt-8 bg-transparent border rounded-md lg:max-w-sm border-gray-700 focus-within:ring focus-within:border-blue-400 focus-within:ring-opacity-40"
         >
-          <form class="flex flex-col lg:flex-row lg:justify-between">
+
+          <form autocomplete="off" data-hx-post="{% url 'core:landing' %}" class="flex {% if success == 'True' %}lg:flex-col space-y-5{% else %}flex-col lg:flex-row lg:justify-between{% endif %}">
             {{ waitlist_form.as_div }}
             {% csrf_token %}
-            <button
-              type="button"
-              class="h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400"
-            >
-              Join the Waitlist
-            </button>
+            <input type="hidden" name="form_type" value="waitlist" />
+            <input
+              type="submit"
+              value="Join the waitlist"
+              class="cursor-pointer h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400"
+            />
           </form>
         </div>
       </div>
@@ -283,10 +285,11 @@
             </div>
           </div>
         </div>
-        <form id="contact_form" action="" class="mt-8 sm:mt-8 space-y-8 md:w-7/12 lg:w-6/12">
+        <form autocomplete="off" id="contact_form" method="POST" class="mt-8 sm:mt-8 space-y-8 md:w-7/12 lg:w-6/12">
           {{ contact_form.as_div }}
           {% csrf_token %}
-          <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit focus:ring-4 focus:outline-none focus:ring-blue-300">Send message</button>
+          <input type="hidden" name="form_type" value="contact" />
+          <input type="submit" value="Send message" class="cursor-pointer py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-600 hover:bg-blue-400 sm:w-fit focus:ring-4 focus:outline-none focus:ring-blue-300"/>
         </form>
       </div>
     </div>
@@ -355,7 +358,7 @@
                     </span>
                     </summary>
                     <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                      Absolutely! All you have to do is register with your email.
+                      Absolutely! All you have to do is register with your UI email.
                     </p>
                 </details>
 
@@ -382,7 +385,7 @@
                     </summary>
                     <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
                       The focus of UI Stack is to foster great experiences with the students of the University of Ibadan (UI) as such only UI students are allowed to post any content.
-                      However, as a non-UI student, you can still view posts on UI Stack.
+                      However, as a non-UI student, you can still view information on UI Stack if shared a link by UI Stack member 
                     </p>
                 </details>
 
@@ -393,7 +396,7 @@
                   <summary
                   class="bg-gray-50 rounded-md px-4 py-2 flex justify-between items-center font-medium cursor-pointer list-none"
                   >
-                  <span>Can the info in Stack Time Capsule be verified?</span>
+                  <span>Can the information on time capsule be verified?</span>
                   <span class="transition group-open:rotate-180">
                       <svg
                       fill="none"
@@ -411,8 +414,9 @@
                   </span>
                   </summary>
                   <p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                    UI Stack uses a voting system in which the community decides whether information posted is legit.
-                    Also, a post is tagged with verified badge if upvoted by a lot of members in the UI Stack Community
+                    UI Stack uses a voting system in which the community decides whether information posted is accurate.
+                    A post is tagged with verified badge when vetted by the UI Stack Team to be true and after being upvoted by a lot of members on the UI Stack Community.
+  
                   </p>
               </details>
 
